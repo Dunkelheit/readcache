@@ -1,3 +1,3 @@
 # readcache
 
-Keeps a file cached in memory after reading it, until it's modified.
+Read a file and keep its contents cached until it's modified
