@@ -14,7 +14,7 @@ npm install readcache
 
 Read a file:
 
-```
+```js
 var readcache = require('readcache');
 
 readcache('/path/to/file', function (err, data, stats) {
