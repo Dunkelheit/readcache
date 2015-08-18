@@ -1,6 +1,8 @@
 # readcache
 
-Read a file and keep its contents cached until it's modified.
+`readcache` is a module to keep the contents of a file cached in memory until
+the file is modified -- at that point, the file will be read again and cached
+until the next time it's modified.
 
 ## Installation
 
