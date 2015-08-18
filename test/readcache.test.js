@@ -27,6 +27,16 @@ describe('readcache', function () {
         });
     });
 
+    it('Allows using custom options', function (done) {
+        readcache(path.join(__dirname, './testdata.json'), { encoding: 'utf16' }, function (err, data, stats) {
+            expect(err).to.be.null;
+            expect(data).to.be.a('string');
+            expect(stats).to.be.an('object');
+            expect(stats).to.have.property('hit', true);
+            done();
+        });
+    });
+
     it('Throws an error when reading an unexisting file', function (done) {
         readcache(path.join(__dirname, './bogus.json'), function (err/*, data, stats*/) {
             expect(err).to.be.an('error');
