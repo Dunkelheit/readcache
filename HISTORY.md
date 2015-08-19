@@ -1,3 +1,6 @@
+### 0.1.3
+* Add benchmarking
+
 ### 0.1.2
 * Update documentation
 
