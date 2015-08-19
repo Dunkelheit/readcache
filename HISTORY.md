@@ -1,3 +1,6 @@
+### 0.1.4
+* Move `gulp-benchmark` to dev dependencies
+
 ### 0.1.3
 * Add benchmarking
 
