@@ -52,6 +52,42 @@ __Arguments__
         * `hit` - `true` when the cache was hit, `false` otherwise
         * `mtime` - The last known modification time of the cached file
 
+## Testing
+
+Run the unit tests with `gulp test`.
+
+## Benchmarking
+
+Run the benchmark suite with `gulp benchmark`.
+
+On Node.js 0.12.7, `readcache` is faster than its `fs.readFile` counterpart,
+but slower than `require`. 
+```
+[13:55:53] Starting 'benchmark'...
+[13:55:59]     readcache x 690 ops/sec ±1.10% (80 runs sampled)
+[13:56:05]     readFile x 614 ops/sec ±1.15% (80 runs sampled)
+[13:56:11]     require x 714 ops/sec ±1.13% (47 runs sampled)
+[13:56:11]     Passed:
+[13:56:11]       'require' at 1.04x faster
+[13:56:11]       'readcache' is etalon
+[13:56:11]       'readFile' at 1.12x slower
+[13:56:11] Finished 'benchmark' after 18 s
+```
+
+On older Node.js versions like 0.10.28, `readcache` is even faster than 
+`require`:
+```
+[13:58:09] Starting 'benchmark'...
+[13:58:15]     readcache x 723 ops/sec ±1.93% (82 runs sampled)
+[13:58:21]     readFile x 645 ops/sec ±2.23% (84 runs sampled)
+[13:58:27]     require x 625 ops/sec ±3.03% (38 runs sampled)
+[13:58:27]     Passed:
+[13:58:27]       'readcache' is etalon
+[13:58:27]       'readFile' at 1.12x slower
+[13:58:27]       'require' at 1.16x slower
+[13:58:27] Finished 'benchmark' after 18 s
+```
+
 ## License
 
 The MIT License (MIT)

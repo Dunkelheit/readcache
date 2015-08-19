@@ -1,10 +1,10 @@
 'use strict';
 
+var benchmark = require('gulp-benchmark');
 var gulp = require('gulp');
 var istanbul = require('gulp-istanbul');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
-var run = require('run-sequence');
 
 gulp.task('lint', function () {
     return gulp.src('./lib/**/*.js')
@@ -18,7 +18,7 @@ gulp.task('unit-test', function (done) {
         .pipe(istanbul())
         .pipe(istanbul.hookRequire())
         .on('finish', function () {
-            gulp.src(['./test/**/*.js'])
+            gulp.src(['./test/**/*.test.js'])
                 .pipe(mocha({
                     reporter: 'spec'
                 }))
@@ -27,10 +27,13 @@ gulp.task('unit-test', function (done) {
         });
 });
 
-gulp.task('test', function (callback) {
-    run(
-        'lint',
-        'unit-test',
-        callback
-    );
+gulp.task('benchmark', function () {
+    return gulp.src('test/benchmark.js', { read: false })
+        .pipe(benchmark({
+            reporters: benchmark.reporters.etalon('readcache')
+        }));
 });
+
+gulp.task('test', ['lint', 'unit-test']);
+
+gulp.task('default', ['test']);
