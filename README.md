@@ -1,8 +1,11 @@
 # readcache
 
 `readcache` is a module to keep the contents of a file cached in memory until
-the file is modified -- at that point, the file will be read again and cached
-until the next time it's modified.
+it's modified. This is done by comparing the file's `fs.Stats.mtime`.
+
+Originally meant to be used with JSON files, but anything else will do. It
+will save you a bunch of `fs.readFile` until it's actually necessary, and
+it's less "persistent" than loading JSON files using `require`.
 
 ## Installation
 
@@ -12,19 +15,42 @@ Using npm:
 npm install readcache
 ```
 
-## Usage
+## Reference
 
-Read a file:
+### readcache.readfile (path, [options], [callback])
+
+Gets the contents of the file at `path`.
+
+If the file is not cached yet, or if the file has been modified since the time
+it was cached, the file will be read and its contents cached. Otherwise, you
+will get the cached contents.
 
 ```js
 var readcache = require('readcache');
 
 readcache('/path/to/file', function (err, data, stats) {
-
     console.log(data); // Contents of the file
-    
+    console.log(stats); // { "hit": false, "mtime": 1439974339996 }
+        
+    // The file is cached now, so this time the contents will be coming from 
+    // memory, instead of reading the file again
+    readcache('/path/to/file', function (err, data, stats) {
+        console.log(stats); // { "hit": true, "mtime": 1439974339996 }
+    });
 });
 ```
+
+__Arguments__
+
+* `options` - Optional set of options passed to `fs.readFile`
+    * `encoding` - The string encoding, defaults to `utf8`
+    * `flag` - Defaults to `r`
+* `callback` - Optional callback function with signature `(err, data, stats)`
+    * `err` - Error, if any
+    * `data` - The contents of the file
+    * `stats` - Statistics object
+        * `hit` - `true` when the cache was hit, `false` otherwise
+        * `mtime` - The last known modification time of the cached file
 
 ## License
 
