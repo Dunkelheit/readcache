@@ -18,7 +18,9 @@
   "keywords": [
     "read",
     "file",
-    "cache"
+    "cache",
+    "require",
+    "json"
   ],
   "bugs": {
     "url": "https://github.com/Dunkelheit/readcache/issues"
