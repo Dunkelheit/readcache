@@ -1,3 +1,6 @@
+### 0.1.5
+* Fix #1: Handle fs.stat errors
+
 ### 0.1.4
 * Move `gulp-benchmark` to dev dependencies
 
