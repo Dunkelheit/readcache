@@ -1,3 +1,7 @@
+### 0.1.6
+* Add benchmark results for Node.js v4.2.1 and v5.0.0
+* Add new keywords in package.json manifest
+
 ### 0.1.5
 * Fix #1: Handle fs.stat errors
 * Extend keywords in package.json

@@ -1,12 +1,12 @@
 {
   "name": "readcache",
-  "version": "0.1.5",
-  "description": "Read a file and keep its contents cached until it's modified",
+  "version": "0.1.6",
+  "description": "Read a file and keep its contents cached in memory until it's modified",
   "main": "lib/readcache.js",
   "scripts": {
     "test": "gulp test"
   },
-  "author": "Arturo Martinez <dunkelheit@gmail.com>",
+  "author": "Arturo Martínez <dunkelheit@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -19,8 +19,11 @@
     "read",
     "file",
     "cache",
+    "caching",
     "require",
-    "json"
+    "json",
+    "fast",
+    "performance"
   ],
   "bugs": {
     "url": "https://github.com/Dunkelheit/readcache/issues"

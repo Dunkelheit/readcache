@@ -60,32 +60,58 @@ Run the unit tests with `gulp test`.
 
 Run the benchmark suite with `gulp benchmark`.
 
+On Node.js v5.0.0, `readcache` is slightly faster than `require` and `fs.readFile`.
+```
+Starting 'benchmark'...
+    readcache x 667 ops/sec ±3.78% (81 runs sampled)
+    readFile x 661 ops/sec ±1.06% (74 runs sampled)
+    require x 579 ops/sec ±1.99% (36 runs sampled)
+    Passed:
+      'readcache' is etalon
+      'readFile' at 1.01x slower
+      'require' at 1.15x slower
+Finished 'benchmark' after 18 s
+```
+
+On Node.js v4.2.1, `readcache` is slightly faster than `require` and `fs.readFile`.
+```
+Starting 'benchmark'...
+    readcache x 738 ops/sec ±1.46% (84 runs sampled)
+    readFile x 693 ops/sec ±1.76% (74 runs sampled)
+    require x 711 ops/sec ±1.64% (77 runs sampled)
+    Passed:
+      'readcache' is etalon
+      'require' at 1.04x slower
+      'readFile' at 1.06x slower
+Finished 'benchmark' after 19 s
+```
+
 On Node.js 0.12.7, `readcache` is faster than its `fs.readFile` counterpart,
 but slower than `require`. 
 ```
-[13:55:53] Starting 'benchmark'...
-[13:55:59]     readcache x 690 ops/sec ±1.10% (80 runs sampled)
-[13:56:05]     readFile x 614 ops/sec ±1.15% (80 runs sampled)
-[13:56:11]     require x 714 ops/sec ±1.13% (47 runs sampled)
-[13:56:11]     Passed:
-[13:56:11]       'require' at 1.04x faster
-[13:56:11]       'readcache' is etalon
-[13:56:11]       'readFile' at 1.12x slower
-[13:56:11] Finished 'benchmark' after 18 s
+Starting 'benchmark'...
+    readcache x 690 ops/sec ±1.10% (80 runs sampled)
+    readFile x 614 ops/sec ±1.15% (80 runs sampled)
+    require x 714 ops/sec ±1.13% (47 runs sampled)
+    Passed:
+      'require' at 1.04x faster
+      'readcache' is etalon
+      'readFile' at 1.12x slower
+Finished 'benchmark' after 18 s
 ```
 
 On older Node.js versions like 0.10.28, `readcache` is even faster than 
 `require`:
 ```
-[13:58:09] Starting 'benchmark'...
-[13:58:15]     readcache x 723 ops/sec ±1.93% (82 runs sampled)
-[13:58:21]     readFile x 645 ops/sec ±2.23% (84 runs sampled)
-[13:58:27]     require x 625 ops/sec ±3.03% (38 runs sampled)
-[13:58:27]     Passed:
-[13:58:27]       'readcache' is etalon
-[13:58:27]       'readFile' at 1.12x slower
-[13:58:27]       'require' at 1.16x slower
-[13:58:27] Finished 'benchmark' after 18 s
+Starting 'benchmark'...
+    readcache x 723 ops/sec ±1.93% (82 runs sampled)
+    readFile x 645 ops/sec ±2.23% (84 runs sampled)
+    require x 625 ops/sec ±3.03% (38 runs sampled)
+    Passed:
+      'readcache' is etalon
+      'readFile' at 1.12x slower
+      'require' at 1.16x slower
+Finished 'benchmark' after 18 s
 ```
 
 ## License
