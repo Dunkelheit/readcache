@@ -30,14 +30,14 @@
   },
   "homepage": "https://github.com/Dunkelheit/readcache",
   "devDependencies": {
-    "benchmark": "^1.0.0",
-    "chai": "^3.2.0",
-    "gulp": "^3.9.0",
-    "gulp-benchmark": "^1.1.1",
-    "gulp-istanbul": "^0.10.0",
-    "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.3",
-    "jshint-stylish": "^2.0.1",
-    "microtime": "^2.0.0"
+    "benchmark": "2.1.1",
+    "chai": "3.5.0",
+    "gulp": "3.9.1",
+    "gulp-benchmark": "1.1.1",
+    "gulp-istanbul": "1.1.1",
+    "gulp-jshint": "2.0.1",
+    "gulp-mocha": "3.0.1",
+    "jshint-stylish": "2.2.1",
+    "microtime": "2.1.1"
   }
 }

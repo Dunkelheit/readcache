@@ -1,3 +1,5 @@
+'use strict';
+
 var Benchmark = require('benchmark');
 var path = require('path');
 var fs = require('fs');
