@@ -1,6 +1,6 @@
 {
   "name": "readcache",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Read a file and keep its contents cached in memory until it's modified",
   "main": "lib/readcache.js",
   "scripts": {
